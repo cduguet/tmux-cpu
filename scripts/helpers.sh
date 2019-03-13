@@ -50,6 +50,28 @@ cpu_load_status() {
 	fi
 }
 
+cpu_temp_status() {
+	local tempC=$1
+	if fcomp 60 $percentage; then 
+		echo "high"
+	elif fcomp 40 $percentage && fcomp $percentage 60; then
+		echo "medium"
+	else
+		echo "low"
+	fi
+}
+
+gpu_temp_status() {
+	local tempC=$1
+	if fcomp 75 $percentage; then 
+		echo "high"
+	elif fcomp 55 $percentage && fcomp $percentage 75; then
+		echo "medium"
+	else
+		echo "low"
+	fi
+}
+
 cpus_number() {
 	if is_linux; then
 		nproc
