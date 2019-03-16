@@ -51,10 +51,10 @@ cpu_load_status() {
 }
 
 cpu_temp_status() {
-	local tempC=$1
-	if fcomp 60 $percentage; then 
+	local temp=$1
+	if fcomp 60 $temp; then 
 		echo "high"
-	elif fcomp 40 $percentage && fcomp $percentage 60; then
+	elif fcomp 40 $temp && fcomp $temp 60; then
 		echo "medium"
 	else
 		echo "low"
@@ -62,10 +62,10 @@ cpu_temp_status() {
 }
 
 gpu_temp_status() {
-	local tempC=$1
-	if fcomp 75 $percentage; then 
+	local temp=$1
+	if fcomp 75 $temp; then 
 		echo "high"
-	elif fcomp 55 $percentage && fcomp $percentage 75; then
+	elif fcomp 55 $temp && fcomp $temp 75; then
 		echo "medium"
 	else
 		echo "low"

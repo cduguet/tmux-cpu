@@ -20,7 +20,7 @@ get_bg_color_settings() {
 
 print_bg_color() {
 	local gpu_percentage=$($CURRENT_DIR/gpu_percentage.sh | sed -e 's/%//')
-	local gpu_temp=$($CURRENT_DIR/gpu_temp.sh | sed -e 's/º//')
+	local gpu_temp=$($CURRENT_DIR/gpu_temp.sh | sed -e 's/ºC//')
 	local gpu_load_status=$(gpu_temp_status $gpu_temp)
 	if [ $gpu_load_status == "low" ]; then
 		echo "$gpu_low_bg_color"
